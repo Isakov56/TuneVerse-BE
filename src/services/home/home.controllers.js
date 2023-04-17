@@ -17,3 +17,13 @@ exports.getSpecificObject = async (req, res, next) => {
 		next(error);
 	}
 };
+
+exports.getAllObjects = async (req, res, next) => {
+	try {
+	  //console.log(req.user)
+	  const objects = await HomeModel.find()
+	  res.send(objects)
+	} catch (error) {
+	  next(error)
+	}
+  }
