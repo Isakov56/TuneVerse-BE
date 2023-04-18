@@ -9,9 +9,10 @@ exports.addToHome = async (req, res, next) => {
 
 exports.getSpecificObject = async (req, res, next) => {
 	try {
-        const encodedName = req.params.name;
-        const name = decodeURIComponent(encodedName);
-		const specificObject = await HomeModel.findOne({name})
+        //const encodedName = req.params.name;
+        //const name = decodeURIComponent(encodedName);
+		const specificObject = await HomeModel.findById(req.params.objectId)
+		//const specificPost = await PostModel.findById(req.params.postId)
 		res.status(200).send(specificObject);
 	} catch (error) {
 		next(error);
